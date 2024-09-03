@@ -1,0 +1,63 @@
+﻿@model IEnumerable<LMS_SYSTEM.Models.STAFF>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BRANCH.BranchName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffGender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BRANCH.BranchName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StaffID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StaffID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StaffID })
+        </td>
+    </tr>
+}
+
+</table>

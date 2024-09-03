@@ -1,0 +1,47 @@
+﻿@model LMS_SYSTEM.Models.BOOK
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BOOK</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOOKSCATEGORY.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOOKSCATEGORY.CategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button class="btn btn-success btnn">
+
+       @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) 
+        </button>
+    <button class="btn btn-info btnn">
+        @Html.ActionLink("Back to List", "Index")
+        </button>
+</p>

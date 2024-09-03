@@ -1,0 +1,75 @@
+﻿@model IEnumerable<LMS_SYSTEM.Models.BOOK>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .btnn *{
+        color:white;
+    }
+</style>
+<h2>Books List</h2>
+
+<p>
+    <a href="Create">
+
+    <button class="btn btn-info btnn">
+        @Html.ActionLink("Add New", "Create")
+        </button>
+    </a>
+     <a href="../ISSUEBOOKs/Create">
+
+    <button class="btn btn-success btnn">
+       Issue Book
+        </button>
+    </a>
+    <a href="../RETURNBOOKs/Create">
+
+    <button class="btn btn-warning btnn">
+        Return Book
+        </button>
+    </a>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BOOKSCATEGORY.CategoryName)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BOOKSCATEGORY.CategoryName)
+        </td>
+        <td>
+
+            <button class="btn btn-success btnn">
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookID })
+                </button>
+                <button class="btn btn-success btnn">
+                    @Html.ActionLink("Details", "Details", new { id = item.BookID }) 
+                </button>
+                <button class="btn btn-danger btnn">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BookID })
+                </button>
+</td>
+    </tr>
+}
+
+</table>

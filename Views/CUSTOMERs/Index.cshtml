@@ -1,0 +1,64 @@
+﻿@model IEnumerable<LMS_SYSTEM.Models.CUSTOMER>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .btnn *{
+        color:white;
+    }
+ 
+</style>
+<h2>Index</h2>
+
+<p>
+    <button class="btn btn-info btnn">
+        @Html.ActionLink("Create New", "Create")
+        </button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BRANCH.BranchName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BRANCH.BranchName)
+        </td>
+        <td>
+            <button class="btn btn-success btnn">
+                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) 
+                    </button>
+                <button class="btn btn-success btnn">
+                    @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) 
+                    </button>
+                    <button class="btn btn-danger btnn">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
+                    </button>
+</td>
+    </tr>
+}
+
+</table>
