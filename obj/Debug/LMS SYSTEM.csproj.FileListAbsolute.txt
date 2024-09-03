@@ -1,0 +1,83 @@
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\LMS SYSTEM.dll.config
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\LMS SYSTEM.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\LMS SYSTEM.pdb
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\csc.exe
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\csc.exe.config
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\csc.rsp
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\csi.exe
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\csi.exe.config
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\csi.rsp
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.Managed.Core.targets
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\Microsoft.Win32.Primitives.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.AppContext.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Collections.Immutable.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Console.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Globalization.Calendars.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.IO.Compression.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.IO.Compression.ZipFile.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.IO.FileSystem.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Net.Http.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Net.Sockets.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.ValueTuple.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Xml.XmlDocument.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Xml.XPath.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\vbc.exe
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\vbc.exe.config
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\vbc.rsp
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\VBCSCompiler.exe
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\roslyn\VBCSCompiler.exe.config
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\Antlr3.Runtime.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\EntityFramework.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\EntityFramework.SqlServer.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\Microsoft.Web.Infrastructure.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\Newtonsoft.Json.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.Helpers.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.Mvc.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.Optimization.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.Razor.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.WebPages.Deployment.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.WebPages.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.WebPages.Razor.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\WebGrease.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\EntityFramework.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\EntityFramework.SqlServer.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.Helpers.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.Mvc.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.Optimization.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.Razor.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.WebPages.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.WebPages.Deployment.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\System.Web.WebPages.Razor.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\Newtonsoft.Json.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\Antlr3.Runtime.pdb
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\obj\Debug\LMS SYSTEM.csproj.CoreCompileInputs.cache
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\obj\Debug\LMS SYSTEM.csproj.CopyComplete
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\obj\Debug\LMS SYSTEM.dll
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\obj\Debug\LMS SYSTEM.pdb
+F:\AHSAN 6th SEMESTER\SAD\LMS SYSTEM\obj\Debug\LMS SYSTEM.csproj.AssemblyReference.cache

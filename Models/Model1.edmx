@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BOOKS">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="BookName" Type="varchar" MaxLength="50" />
+          <Property Name="BookAuthor" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="BOOKSCATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BRANCH">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="BranchName" Type="varchar" MaxLength="50" />
+          <Property Name="BranchAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerEmail" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerAddress" Type="varchar" MaxLength="50" />
+          <Property Name="BranchId" Type="int" />
+        </EntityType>
+        <EntityType Name="ISSUEBOOK">
+          <Key>
+            <PropertyRef Name="IssueID" />
+          </Key>
+          <Property Name="IssueID" Type="int" Nullable="false" />
+          <Property Name="IssueDate" Type="varchar" MaxLength="20" />
+          <Property Name="ExpiryDate" Type="varchar" MaxLength="20" />
+          <Property Name="BookID" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+        </EntityType>
+        <EntityType Name="librarian">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RETURNBOOK">
+          <Key>
+            <PropertyRef Name="ReturnID" />
+          </Key>
+          <Property Name="ReturnID" Type="int" Nullable="false" />
+          <Property Name="IssueDate" Type="varchar" MaxLength="20" />
+          <Property Name="ExpiryDate" Type="varchar" MaxLength="20" />
+          <Property Name="BookID" Type="int" />
+          <Property Name="StaffID" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+        </EntityType>
+        <EntityType Name="STAFF">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="StaffName" Type="varchar" MaxLength="50" />
+          <Property Name="StaffEmail" Type="varchar" MaxLength="50" />
+          <Property Name="StaffAddress" Type="varchar" MaxLength="50" />
+          <Property Name="StaffGender" Type="varchar" MaxLength="50" />
+          <Property Name="StaffPhone" Type="int" />
+          <Property Name="BranchId" Type="int" />
+        </EntityType>
+        <Association Name="FK__BOOKS__CategoryI__22AA2996">
+          <End Role="BOOKSCATEGORY" Type="Self.BOOKSCATEGORY" Multiplicity="0..1" />
+          <End Role="BOOKS" Type="Self.BOOKS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKSCATEGORY">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="BOOKS">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CUSTOMER__Branch__2A4B4B5E">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ISSUEBOOK__BookI__3F466844">
+          <End Role="BOOKS" Type="Self.BOOKS" Multiplicity="0..1" />
+          <End Role="ISSUEBOOK" Type="Self.ISSUEBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKS">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="ISSUEBOOK">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ISSUEBOOK__Custo__403A8C7D">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="ISSUEBOOK" Type="Self.ISSUEBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="ISSUEBOOK">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RETURNBOO__BookI__45F365D3">
+          <End Role="BOOKS" Type="Self.BOOKS" Multiplicity="0..1" />
+          <End Role="RETURNBOOK" Type="Self.RETURNBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKS">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="RETURNBOOK">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RETURNBOO__Custo__47DBAE45">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="RETURNBOOK" Type="Self.RETURNBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="RETURNBOOK">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RETURNBOO__Staff__46E78A0C">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+          <End Role="RETURNBOOK" Type="Self.RETURNBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="StaffID" />
+            </Principal>
+            <Dependent Role="RETURNBOOK">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STAFF__BranchId__4316F928">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="0..1" />
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="STAFF">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LMSModelStoreContainer">
+          <EntitySet Name="BOOKS" EntityType="Self.BOOKS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOOKSCATEGORY" EntityType="Self.BOOKSCATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BRANCH" EntityType="Self.BRANCH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ISSUEBOOK" EntityType="Self.ISSUEBOOK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="librarian" EntityType="Self.librarian" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RETURNBOOK" EntityType="Self.RETURNBOOK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STAFF" EntityType="Self.STAFF" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BOOKS__CategoryI__22AA2996" Association="Self.FK__BOOKS__CategoryI__22AA2996">
+            <End Role="BOOKSCATEGORY" EntitySet="BOOKSCATEGORY" />
+            <End Role="BOOKS" EntitySet="BOOKS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CUSTOMER__Branch__2A4B4B5E" Association="Self.FK__CUSTOMER__Branch__2A4B4B5E">
+            <End Role="BRANCH" EntitySet="BRANCH" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ISSUEBOOK__BookI__3F466844" Association="Self.FK__ISSUEBOOK__BookI__3F466844">
+            <End Role="BOOKS" EntitySet="BOOKS" />
+            <End Role="ISSUEBOOK" EntitySet="ISSUEBOOK" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ISSUEBOOK__Custo__403A8C7D" Association="Self.FK__ISSUEBOOK__Custo__403A8C7D">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="ISSUEBOOK" EntitySet="ISSUEBOOK" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RETURNBOO__BookI__45F365D3" Association="Self.FK__RETURNBOO__BookI__45F365D3">
+            <End Role="BOOKS" EntitySet="BOOKS" />
+            <End Role="RETURNBOOK" EntitySet="RETURNBOOK" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RETURNBOO__Custo__47DBAE45" Association="Self.FK__RETURNBOO__Custo__47DBAE45">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="RETURNBOOK" EntitySet="RETURNBOOK" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RETURNBOO__Staff__46E78A0C" Association="Self.FK__RETURNBOO__Staff__46E78A0C">
+            <End Role="STAFF" EntitySet="STAFF" />
+            <End Role="RETURNBOOK" EntitySet="RETURNBOOK" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STAFF__BranchId__4316F928" Association="Self.FK__STAFF__BranchId__4316F928">
+            <End Role="BRANCH" EntitySet="BRANCH" />
+            <End Role="STAFF" EntitySet="STAFF" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BOOK">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BookAuthor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <NavigationProperty Name="BOOKSCATEGORY" Relationship="Self.FK__BOOKS__CategoryI__22AA2996" FromRole="BOOKS" ToRole="BOOKSCATEGORY" />
+          <NavigationProperty Name="ISSUEBOOKs" Relationship="Self.FK__ISSUEBOOK__BookI__3F466844" FromRole="BOOKS" ToRole="ISSUEBOOK" />
+          <NavigationProperty Name="RETURNBOOKs" Relationship="Self.FK__RETURNBOO__BookI__45F365D3" FromRole="BOOKS" ToRole="RETURNBOOK" />
+        </EntityType>
+        <EntityType Name="BOOKSCATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BOOKS" Relationship="Self.FK__BOOKS__CategoryI__22AA2996" FromRole="BOOKSCATEGORY" ToRole="BOOKS" />
+        </EntityType>
+        <EntityType Name="BRANCH">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BranchAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK__CUSTOMER__Branch__2A4B4B5E" FromRole="BRANCH" ToRole="CUSTOMER" />
+          <NavigationProperty Name="STAFFs" Relationship="Self.FK__STAFF__BranchId__4316F928" FromRole="BRANCH" ToRole="STAFF" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BranchId" Type="Int32" />
+          <NavigationProperty Name="BRANCH" Relationship="Self.FK__CUSTOMER__Branch__2A4B4B5E" FromRole="CUSTOMER" ToRole="BRANCH" />
+          <NavigationProperty Name="ISSUEBOOKs" Relationship="Self.FK__ISSUEBOOK__Custo__403A8C7D" FromRole="CUSTOMER" ToRole="ISSUEBOOK" />
+          <NavigationProperty Name="RETURNBOOKs" Relationship="Self.FK__RETURNBOO__Custo__47DBAE45" FromRole="CUSTOMER" ToRole="RETURNBOOK" />
+        </EntityType>
+        <EntityType Name="ISSUEBOOK">
+          <Key>
+            <PropertyRef Name="IssueID" />
+          </Key>
+          <Property Name="IssueID" Type="Int32" Nullable="false" />
+          <Property Name="IssueDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BookID" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <NavigationProperty Name="BOOK" Relationship="Self.FK__ISSUEBOOK__BookI__3F466844" FromRole="ISSUEBOOK" ToRole="BOOKS" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__ISSUEBOOK__Custo__403A8C7D" FromRole="ISSUEBOOK" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="RETURNBOOK">
+          <Key>
+            <PropertyRef Name="ReturnID" />
+          </Key>
+          <Property Name="ReturnID" Type="Int32" Nullable="false" />
+          <Property Name="IssueDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BookID" Type="Int32" />
+          <Property Name="StaffID" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <NavigationProperty Name="BOOK" Relationship="Self.FK__RETURNBOO__BookI__45F365D3" FromRole="RETURNBOOK" ToRole="BOOKS" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__RETURNBOO__Custo__47DBAE45" FromRole="RETURNBOOK" ToRole="CUSTOMER" />
+          <NavigationProperty Name="STAFF" Relationship="Self.FK__RETURNBOO__Staff__46E78A0C" FromRole="RETURNBOOK" ToRole="STAFF" />
+        </EntityType>
+        <EntityType Name="STAFF">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="StaffName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffPhone" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <NavigationProperty Name="BRANCH" Relationship="Self.FK__STAFF__BranchId__4316F928" FromRole="STAFF" ToRole="BRANCH" />
+          <NavigationProperty Name="RETURNBOOKs" Relationship="Self.FK__RETURNBOO__Staff__46E78A0C" FromRole="STAFF" ToRole="RETURNBOOK" />
+        </EntityType>
+        <Association Name="FK__BOOKS__CategoryI__22AA2996">
+          <End Role="BOOKSCATEGORY" Type="Self.BOOKSCATEGORY" Multiplicity="0..1" />
+          <End Role="BOOKS" Type="Self.BOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKSCATEGORY">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="BOOKS">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ISSUEBOOK__BookI__3F466844">
+          <End Role="BOOKS" Type="Self.BOOK" Multiplicity="0..1" />
+          <End Role="ISSUEBOOK" Type="Self.ISSUEBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKS">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="ISSUEBOOK">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RETURNBOO__BookI__45F365D3">
+          <End Role="BOOKS" Type="Self.BOOK" Multiplicity="0..1" />
+          <End Role="RETURNBOOK" Type="Self.RETURNBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKS">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="RETURNBOOK">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CUSTOMER__Branch__2A4B4B5E">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STAFF__BranchId__4316F928">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="0..1" />
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="STAFF">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ISSUEBOOK__Custo__403A8C7D">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="ISSUEBOOK" Type="Self.ISSUEBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="ISSUEBOOK">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RETURNBOO__Custo__47DBAE45">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="RETURNBOOK" Type="Self.RETURNBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="RETURNBOOK">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RETURNBOO__Staff__46E78A0C">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+          <End Role="RETURNBOOK" Type="Self.RETURNBOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="StaffID" />
+            </Principal>
+            <Dependent Role="RETURNBOOK">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BOOKS" EntityType="Self.BOOK" />
+          <EntitySet Name="BOOKSCATEGORies" EntityType="Self.BOOKSCATEGORY" />
+          <EntitySet Name="BRANCHes" EntityType="Self.BRANCH" />
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="ISSUEBOOKs" EntityType="Self.ISSUEBOOK" />
+          <EntitySet Name="RETURNBOOKs" EntityType="Self.RETURNBOOK" />
+          <EntitySet Name="STAFFs" EntityType="Self.STAFF" />
+          <AssociationSet Name="FK__BOOKS__CategoryI__22AA2996" Association="Self.FK__BOOKS__CategoryI__22AA2996">
+            <End Role="BOOKSCATEGORY" EntitySet="BOOKSCATEGORies" />
+            <End Role="BOOKS" EntitySet="BOOKS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ISSUEBOOK__BookI__3F466844" Association="Self.FK__ISSUEBOOK__BookI__3F466844">
+            <End Role="BOOKS" EntitySet="BOOKS" />
+            <End Role="ISSUEBOOK" EntitySet="ISSUEBOOKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RETURNBOO__BookI__45F365D3" Association="Self.FK__RETURNBOO__BookI__45F365D3">
+            <End Role="BOOKS" EntitySet="BOOKS" />
+            <End Role="RETURNBOOK" EntitySet="RETURNBOOKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CUSTOMER__Branch__2A4B4B5E" Association="Self.FK__CUSTOMER__Branch__2A4B4B5E">
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STAFF__BranchId__4316F928" Association="Self.FK__STAFF__BranchId__4316F928">
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+            <End Role="STAFF" EntitySet="STAFFs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ISSUEBOOK__Custo__403A8C7D" Association="Self.FK__ISSUEBOOK__Custo__403A8C7D">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="ISSUEBOOK" EntitySet="ISSUEBOOKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RETURNBOO__Custo__47DBAE45" Association="Self.FK__RETURNBOO__Custo__47DBAE45">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="RETURNBOOK" EntitySet="RETURNBOOKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RETURNBOO__Staff__46E78A0C" Association="Self.FK__RETURNBOO__Staff__46E78A0C">
+            <End Role="STAFF" EntitySet="STAFFs" />
+            <End Role="RETURNBOOK" EntitySet="RETURNBOOKs" />
+          </AssociationSet>
+          <EntitySet Name="librarians" EntityType="LMSModel.librarian" />
+        </EntityContainer>
+        <EntityType Name="librarian">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LMSModelStoreContainer" CdmEntityContainer="LMSEntities">
+          <EntitySetMapping Name="BOOKS">
+            <EntityTypeMapping TypeName="LMSModel.BOOK">
+              <MappingFragment StoreEntitySet="BOOKS">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="BookAuthor" ColumnName="BookAuthor" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOOKSCATEGORies">
+            <EntityTypeMapping TypeName="LMSModel.BOOKSCATEGORY">
+              <MappingFragment StoreEntitySet="BOOKSCATEGORY">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BRANCHes">
+            <EntityTypeMapping TypeName="LMSModel.BRANCH">
+              <MappingFragment StoreEntitySet="BRANCH">
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="LMSModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ISSUEBOOKs">
+            <EntityTypeMapping TypeName="LMSModel.ISSUEBOOK">
+              <MappingFragment StoreEntitySet="ISSUEBOOK">
+                <ScalarProperty Name="IssueID" ColumnName="IssueID" />
+                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RETURNBOOKs">
+            <EntityTypeMapping TypeName="LMSModel.RETURNBOOK">
+              <MappingFragment StoreEntitySet="RETURNBOOK">
+                <ScalarProperty Name="ReturnID" ColumnName="ReturnID" />
+                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STAFFs">
+            <EntityTypeMapping TypeName="LMSModel.STAFF">
+              <MappingFragment StoreEntitySet="STAFF">
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+                <ScalarProperty Name="StaffAddress" ColumnName="StaffAddress" />
+                <ScalarProperty Name="StaffGender" ColumnName="StaffGender" />
+                <ScalarProperty Name="StaffPhone" ColumnName="StaffPhone" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="librarians">
+            <EntityTypeMapping TypeName="LMSModel.librarian">
+              <MappingFragment StoreEntitySet="librarian">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
